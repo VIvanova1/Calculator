@@ -109,3 +109,63 @@
 //     displayWorkEl.innerText = -displayWorkEl.innerText;
 //     displWorkNum *= -1;
 // })
+
+
+let result = document.getElementById('result');
+result.value = null;
+let tempValue = document.getElementById('workDisplay');
+tempValue.value = null;
+
+const number = document.querySelectorAll(".number");
+const operation = document.querySelectorAll(".operation");
+
+// --- numbers
+number.forEach(num => {
+    num.addEventListener("click", (e) => {
+        // if (e.target.innerText === "." && !haveDot) {
+        //     haveDot = true;
+        // } else if (e.target.innerText === "." && haveDot) {
+        //     return;
+        // }
+
+        tempValue.value += Number(num.value);
+    })
+});
+
+// --- history-result
+// --- operation
+
+operation.forEach(opp => {
+    opp.addEventListener("click", (e) => {
+
+        let val1 = tempValue.value;
+        let val2 = result.textContent;
+
+        if (val1 && !val2) {
+            val2 += `${val1} ${opp.value} `
+            val1 = null;
+        } else {
+            switch (opp.value) {
+                case '+':
+                    val2 = Number(val1) + Number(val2)
+                    break;
+            }
+        }
+
+    });
+});
+
+// --- clear-temp-value
+
+const lastClearEl = document.getElementsByClassName("last-clear")[0];
+lastClearEl.addEventListener("click", (e) => {
+    tempValue.value = null;
+});
+
+// --- clear-ALL
+
+const clearAll = document.getElementsByClassName('all-clear')[0];
+clearAll.addEventListener("click", (e) => {
+    tempValue.value = null;
+    result.textContent = null;
+});
