@@ -29,7 +29,6 @@
 }
 
 .container .buttons {
-    background-color: aqua;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 50px);
@@ -63,7 +62,11 @@
 }
 
 #workDisplay {
-    font-size: 38px;
+    font-size: 20px;
+    border: none;
+    width: 100%;
+    background-color: aliceblue;
+    text-align: end;
 }
 
 #result {
