@@ -2,18 +2,30 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
+
+
+/* ---keyBoard--- */
 
 .container {
     display: block;
-    width: 30%;
+    width: 80%;
     margin: 5em auto;
 }
 
-.container .display {
-    background-color: aliceblue;
-    padding: 30px 50px;
-    text-align: end;
+@media screen and (min-width:767px) {
+    .container {
+        width: 50%;
+        margin: 10em auto;
+    }
+}
+
+@media screen and (min-width:1023px) {
+    .container {
+        width: 20%;
+        margin: 10em auto;
+    }
 }
 
 .container .buttons {
@@ -27,10 +39,33 @@
 }
 
 .button {
-    padding: 10px;
+    cursor: pointer;
+    border: none;
+    height: 40px;
     border-radius: 29px;
-    min-width: 41.5px;
+    width: 41.5px;
     text-align: center;
     background-color: #80808030;
-    box-shadow: -2px -2px 15px #80808030;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+.button:hover {
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+}
+
+
+/* --- display --- */
+
+.container .display {
+    background-color: aliceblue;
+    padding: 10px 50px;
+    text-align: end;
+}
+
+#workDisplay {
+    font-size: 38px;
+}
+
+#result {
+    color: grey;
 }
